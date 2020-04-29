@@ -1,0 +1,32 @@
+{
+    "env": {
+        "browser": true,
+        "jest": true,
+        "node": true
+    },
+ "extends": [ "airbnb", "plugin:prettier/recommended" ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "react/jsx-filename-extension": [1, {
+        "extensions": [".js", ".jsx"]}
+    ],
+    "global-require": "off",
+    "import/prefer-default-export": "off",
+    "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
+    "import/no-extraneous-dependencies": ["error",  {"devDependencies": true}],
+    "react/jsx-props-no-spreading": "off"
+}
+}
