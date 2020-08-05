@@ -1,9 +1,27 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Button } from "@material-ui/core";
-import dataProvider from "./dataProvider";
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { Button, Paper } from '@material-ui/core';
+import dataProvider from './dataProvider';
 
 const Teste = () => {
+  const [corEscolhida, setCorEscolhida] = useState('white');
+
+  useEffect(() => {
+    const asyncCorEscolhida = () => {
+      const vlr = Math.floor(Math.random() * 3);
+      // eslint-disable-next-line no-console
+      console.log(vlr);
+      if (vlr === 0) {
+        setCorEscolhida('#ff9999');
+      } else if (vlr === 1) {
+        setCorEscolhida('#ffff99');
+      } else if (vlr === 2) {
+        setCorEscolhida('#adebad');
+      }
+    };
+    asyncCorEscolhida();
+  }, []);
+
   // const type = "TESTE";
   // const resource = "users";
   // const params = {
@@ -14,6 +32,13 @@ const Teste = () => {
 
   return (
     <div>
+      <Paper style={{ background: corEscolhida }}>
+        <div
+          style={{ display: 'flex', justifyContent: 'center', padding: '25px' }}
+        >
+          HELLO!
+        </div>
+      </Paper>
       <Button
         color="primary"
         variant="outlined"
@@ -25,9 +50,7 @@ const Teste = () => {
   );
 };
 
-const maptStateToProps = (state) => {
-  return { ...state };
-};
+const maptStateToProps = (state) => ({ ...state });
 
 export default connect(maptStateToProps, {
   dataProvider,

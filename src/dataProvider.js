@@ -8,11 +8,11 @@ import {
   UPDATE,
   DELETE,
   fetchUtils,
-} from "react-admin";
-import { stringify } from "query-string";
-import jsonServerProvider from "ra-data-json-server";
+} from 'react-admin';
+import { stringify } from 'query-string';
+import jsonServerProvider from 'ra-data-json-server';
 
-const API_URL = "https://jsonplaceholder.typicode.com";
+const API_URL = 'https://jsonplaceholder.typicode.com';
 
 /**
  * @param {String} type One of the constants appearing at the top of this file, e.g. 'UPDATE'
@@ -22,7 +22,7 @@ const API_URL = "https://jsonplaceholder.typicode.com";
  */
 const convertDataProviderRequestToHTTP = (type, resource, params) => {
   switch (type) {
-    case "TESTE": {
+    case 'TESTE': {
       const { page, perPage } = params.pagination;
       const { field, order } = params.sort;
       const query = {
@@ -67,17 +67,17 @@ const convertDataProviderRequestToHTTP = (type, resource, params) => {
     case UPDATE:
       return {
         url: `${API_URL}/${resource}/${params.id}`,
-        options: { method: "PUT", body: JSON.stringify(params.data) },
+        options: { method: 'PUT', body: JSON.stringify(params.data) },
       };
     case CREATE:
       return {
         url: `${API_URL}/${resource}`,
-        options: { method: "POST", body: JSON.stringify(params.data) },
+        options: { method: 'POST', body: JSON.stringify(params.data) },
       };
     case DELETE:
       return {
         url: `${API_URL}/${resource}/${params.id}`,
-        options: { method: "DELETE" },
+        options: { method: 'DELETE' },
       };
     default:
       throw new Error(`Unsupported fetch action type ${type}`);
@@ -95,13 +95,13 @@ const convertHTTPResponseToDataProvider = (
   response,
   type,
   resource,
-  params
+  params,
 ) => {
   // eslint-disable-next-line no-unused-vars
   const { headers, json } = response;
   // eslint-disable-next-line no-unused-vars
   const dataProvider = jsonServerProvider(
-    "https://jsonplaceholder.typicode.com"
+    'https://jsonplaceholder.typicode.com',
   );
 
   switch (type) {
@@ -129,9 +129,8 @@ export default (type, resource, params) => {
   const { url, options } = convertDataProviderRequestToHTTP(
     type,
     resource,
-    params
+    params,
   );
-  return fetchJson(url, options).then((response) =>
-    convertHTTPResponseToDataProvider(response, type, resource, params)
-  );
+  return fetchJson(url, options)
+    .then((response) => convertHTTPResponseToDataProvider(response, type, resource, params));
 };

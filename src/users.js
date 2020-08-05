@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   List,
   Datagrid,
@@ -9,18 +9,16 @@ import {
   TextInput,
   ReferenceInput,
   SelectInput,
-} from "react-admin";
+} from 'react-admin';
 
-const UserFilter = (props) => {
-  return (
-    <Filter {...props}>
-      <TextInput label="Search" source="q" alwaysOn />
-      <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
-        <SelectInput optionText="name" />
-      </ReferenceInput>
-    </Filter>
-  );
-};
+const UserFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Search" source="q" alwaysOn />
+    <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
+      <SelectInput optionText="name" />
+    </ReferenceInput>
+  </Filter>
+);
 
 export const UserList = (props) => (
   <List {...props} filters={<UserFilter />}>
