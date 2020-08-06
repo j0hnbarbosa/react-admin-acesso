@@ -7,14 +7,20 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "lint": "^0.7.0",
+    "formik": "^2.1.5",
+    "npm-upgrade": "^2.0.4",
+    "prop-types": "^15.7.2",
     "query-string": "^6.12.1",
+    "ra-core": "^3.7.2",
     "ra-data-json-server": "^3.4.1",
     "react": "^16.13.1",
     "react-admin": "^3.4.2",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
-    "react-scripts": "3.4.1"
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.1",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "lint": "eslint .",
@@ -39,7 +45,6 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^7.6.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",

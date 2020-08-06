@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Button, Paper } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import dataProvider from './dataProvider';
 
-const Teste = () => {
+const Teste = (props) => {
   const [corEscolhida, setCorEscolhida] = useState('white');
 
   useEffect(() => {
@@ -22,13 +23,13 @@ const Teste = () => {
     asyncCorEscolhida();
   }, []);
 
-  // const type = "TESTE";
-  // const resource = "users";
-  // const params = {
-  //   filter: {},
-  //   pagination: { page: 1, perPage: 10 },
-  //   sort: { field: "id", order: "ASC" },
-  // };
+  const type = 'TESTE';
+  const resource = 'users';
+  const params = {
+    filter: {},
+    pagination: { page: 1, perPage: 10 },
+    sort: { field: 'id', order: 'ASC' },
+  };
 
   return (
     <div>
@@ -42,12 +43,16 @@ const Teste = () => {
       <Button
         color="primary"
         variant="outlined"
-        // onClick={() => props.dataProvider(type, resource, params)}
+        onClick={() => props.dataProvider(type, resource, params)}
       >
         TESTE
       </Button>
     </div>
   );
+};
+
+Teste.propTypes = {
+  dataProvider: PropTypes.func.isRequired,
 };
 
 const maptStateToProps = (state) => ({ ...state });

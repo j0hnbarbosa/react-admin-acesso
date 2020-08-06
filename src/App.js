@@ -1,16 +1,16 @@
-// in src/App.js
 import React from 'react';
 import { Admin, Resource, EditGuesser } from 'react-admin';
-// import jsonServerProvider from 'ra-data-json-server';
 import { UserList } from './users';
 import authProvider from './authProvider';
 import dataProvider from './dataProvider';
+import CustomRoutes from './routes';
 import Teste from './teste';
-
-// const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
+import Login from './pages/login';
 
 const App = () => (
   <Admin
+    loginPage={Login}
+    customRoutes={CustomRoutes}
     dashboard={Teste}
     authProvider={authProvider}
     dataProvider={dataProvider}

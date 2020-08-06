@@ -7,7 +7,7 @@ export default {
       return Promise.reject();
     }
     localStorage.setItem('username', username);
-    // accept all username/password combinations
+    // accept all username/password combinationsa
     return Promise.resolve();
   },
   // called when the user clicks on the logout button
